@@ -1,0 +1,24 @@
+{
+    "name": "simple-chat-page",
+    "version": "1.0.0",
+    "description": "simple page with chat-gpt api",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CyanLike/simple-chat-page.git"
+    },
+    "dependencies": {
+        "axios": "^0.21.0",
+        "express": "^4.17.1"
+    },
+    "author": "cyanlike",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/CyanLike/simple-chat-page/issues"
+    },
+    "homepage": "https://github.com/CyanLike/simple-chat-page#readme"
+}

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      async function generateResponse() {
+        const inputText = document.getElementById("input-text").value;
+        const responseOutput = document.getElementById("response-output");
+        responseOutput.innerHTML = "Generating response...";
+
+        try {
+          const response = await axios.post('/openai-proxy', {
+            prompt: inputText
+          }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+          });
+
+          responseOutput.innerHTML = response.data.choices == undefined ? response.data : response.data.choices[0].text;
+        } catch (error) {
+          console.error(error);
+          responseOutput.innerHTML = "An error occurred while generating the response.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Chat with OpenAI</h2>
+    <p>
+      <label for="input-text">Input Text:</label><br>
+      <textarea id="input-text" rows="5" cols="50"></textarea>
+    </p>
+    <p>
+      <button onclick="generateResponse()">Generate Response</button>
+    </p>
+    <h2>Response:</h2>
+    <p id="response-output"></p>
+
+  </body>
+</html>
